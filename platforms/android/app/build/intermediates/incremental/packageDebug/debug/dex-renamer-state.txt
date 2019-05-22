@@ -1,0 +1,4 @@
+#Sat Mar 30 01:54:59 BOT 2019
+base.0=C\:\\Users\\Henrique\\Documents\\darmand-inventory\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

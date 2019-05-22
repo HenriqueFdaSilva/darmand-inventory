@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+      <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+    <ion-item>
+      <ion-label >NOME</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touched)" color="danger">
+      <div [hidden]="!form.controls.name.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+  </ion-col>
+  <ion-col col-6>
+      <ion-item>
+        <ion-label >VALOR</ion-label>
+        <ion-input type="number" formControlName="valor_unitario"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!form.controls.valor_unitario.valid && (form.controls.valor_unitario.dirty || form.controls.valor_unitario.touched)" color="danger">
+        <div [hidden]="!form.controls.valor_unitario.errors.required">
+          O campo é obrigatório
+        </div>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+     
+    <ion-col col-6>
+        <ion-item>
+          <ion-label >ESTOQUE</ion-label>
+          <ion-input type="number" formControlName="qtd_estoque"></ion-input>
+        </ion-item>
+    </ion-col>
+    <ion-col col-6>
+      <ion-item>
+          <ion-label >QTD</ion-label>
+          <ion-input type="number" formControlName="qtd">
+          </ion-input>
+       </ion-item>
+  </ion-col>
+    
+  </ion-row>
+      <ion-row>
+        <ion-col col-6>
+            <ion-item>
+               <ion-label >TOTAL CONFERIDO</ion-label>
+               <ion-input type="number" formControlName="qtd_conferido" disabled>
+               </ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-6>
+            <ion-item>
+                <ion-label >ULTIMO CONFERIDO</ion-label>
+                <ion-input type="number" formControlName="valor_conferido" disabled>
+                </ion-input>
+             </ion-item>
+        </ion-col>
+        
+      </ion-row>
+      <ion-row>
+        <ion-col class="btn-add" col-6>
+            <button ion-button color="danger" (click)=" presentAlertOnDecrease()">Remover</button>
+        </ion-col><ion-col class="btn-add" col-6>
+            <button ion-button color="primary" (click)="onIncrease()">Adicionar</button> 
+                
+        </ion-col>
+      </ion-row>
+
+        <ion-row>
+          <ion-col col-3>
+              <ion-item color="secondary">
+                <ion-label color="light">SOBRA</ion-label>
+                <ion-input color="primary" type="number" formControlName="sobra"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-3>
+                <ion-item color="secondary" disabled>
+                  <ion-label color="light">V SOBRA</ion-label>
+                  <ion-input type="number" formControlName="valor_sobra"></ion-input>
+                </ion-item>
+              </ion-col>
+            <ion-col col-3>
+              <ion-item color="danger">
+                 <ion-label color="light">FALTA</ion-label>
+                 <ion-input type="number" formControlName="falta"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col col-3>
+              <ion-item color="danger">
+                <ion-label color="light">V FALTA</ion-label>
+                <ion-input  type="number" formControlName="valor_falta" ></ion-input>
+              </ion-item>
+            </ion-col>
+            
+        </ion-row>
+      </ion-grid>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+     </div>
+  </form>
+</ion-content>

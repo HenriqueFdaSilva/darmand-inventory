@@ -1,0 +1,7 @@
+{
+  "name": "darmand-inventory",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
